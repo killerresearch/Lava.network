@@ -85,14 +85,11 @@ sudo ln -s $HOME/.lava/cosmovisor/current/bin/lavad /usr/local/bin/lavad -f
 
 
 ## Setup and Install Cosmovisor
-
-- Download and Install Cosmovisor
-
-```
-go install [cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest](http://cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest)
-```
-
-- Create Service
+Download and Install Cosmovisor
+go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
+​
+Create Service
+```python
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
 [Unit]
 Description=lava node service
@@ -111,10 +108,13 @@ Environment="UNSAFE_SKIP_BACKUP=true"
 [Install]
 WantedBy=multi-user.target
 EOF
-​
+```
+​```python
 sudo systemctl daemon-reload
-​
+​```
+```python
 sudo systemctl enable lava.service
+```
 
 ## Initialize Node=
 Setup Node Configurations:
