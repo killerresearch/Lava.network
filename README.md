@@ -97,6 +97,7 @@ Download and Install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ​
 Create Service
+
 ```python
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
 [Unit]
@@ -116,12 +117,11 @@ Environment="UNSAFE_SKIP_BACKUP=true"
 [Install]
 WantedBy=multi-user.target
 EOF
-
 ```
 
-​```python
+```python
 sudo systemctl daemon-reload
-​```
+```
 
 ```python
 sudo systemctl enable lava.service
@@ -130,21 +130,31 @@ sudo systemctl enable lava.service
 ## Initialize Node=
 Setup Node Configurations:
 
+```python
 lavad config chain-id lava-testnet-2
-​
+```
+
+```python
 lavad config keyring-backend test
-​
+```
+
+```python
 lavad config node tcp://localhost:14457
-
-##initialize The Node
-
+```
+## Initialize The Node
+```pyhon
 lavad init $MONIKER --chain-id lava-testnet-2
-
+```
 
 ## Download Node Essentials
+
+```python
 curl -Ls https://snapshots.kjnodes.com/lava-testnet/genesis.json > $HOME/.lava/config/genesis.json
-​
+```
+
+```python
 curl -Ls https://snapshots.kjnodes.com/lava-testnet/addrbook.json > $HOME/.lava/config/addrbook.json
+```
 
 #### Configure Node
 
@@ -226,21 +236,31 @@ sudo systemctl start lava.service && sudo journalctl -u lava.service -f --no-hos
 
 > *CTRL+C for Exit Node Logs*
 
-## Create Validator /// tanpa tanda petik
+## Create Validator
 Setup Wallet
 Make new Wallet
 
-"lavad keys add wallet"
-​
+```python
+lavad keys add wallet
+​```
+
 Make sure you're already saved the phrase
 Restore/import wallet
 
-"lavad keys add wallet --restore"
-​
+```python
+
+lavad keys add wallet --restore
+
+​```
+
 Get some test token on faucet channel at lava discord server
 Check Wallet Balance
 
-"lavad q bank balances $(lavad keys show wallet -a)"
+```python
+
+lavad q bank balances $(lavad keys show wallet -a)
+
+```
 
 ## Create Validator
 
