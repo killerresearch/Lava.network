@@ -8,22 +8,30 @@ Go
 
 =Install Build Essentials=
 Preparations
+```pyhton
 sudo apt update && sudo apt upgrade -y
-​
+```
+​```python
 MONIKER="YOUR_MONIKER”
-​
+​```
+
 //Replace YOUR_MONIKER with your validator name/initial//
 
+```python
 sudo apt -qy install curl git jq lz4 build-essential
+```
 ​
 =Install Go=
 
+```python
 sudo rm -rf /usr/local/gocurl -Ls https://go.dev/dl/go1.20.12.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
-​
+​```
+```python
 eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
-​
+​```
+```python
 eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
-
+```
 
 ## Setup and Install Node
 
@@ -108,10 +116,13 @@ Environment="UNSAFE_SKIP_BACKUP=true"
 [Install]
 WantedBy=multi-user.target
 EOF
+
 ```
+
 ​```python
 sudo systemctl daemon-reload
 ​```
+
 ```python
 sudo systemctl enable lava.service
 ```
