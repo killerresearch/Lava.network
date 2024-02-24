@@ -7,13 +7,18 @@ Minimum Specifications
 Go
 
 =Install Build Essentials=
-Preparations
-```pyhton
+- Preparations
+
+```python
 sudo apt update && sudo apt upgrade -y
 ```
-​```python
+
+```python
 MONIKER="YOUR_MONIKER”
-​```
+```
+
+> 
+>
 
 //Replace YOUR_MONIKER with your validator name/initial//
 
@@ -21,16 +26,22 @@ MONIKER="YOUR_MONIKER”
 sudo apt -qy install curl git jq lz4 build-essential
 ```
 ​
-=Install Go=
-
+Install Go
 ```python
 sudo rm -rf /usr/local/gocurl -Ls https://go.dev/dl/go1.20.12.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
+
 ​```
+
 ```python
+
 eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
-​```
+
+```
+
 ```python
+
 eval $(echo 'export PATH=$PATH:$HOME/go/bin' | tee -a $HOME/.profile)
+
 ```
 
 ## Setup and Install Node
@@ -93,10 +104,13 @@ sudo ln -s $HOME/.lava/cosmovisor/current/bin/lavad /usr/local/bin/lavad -f
 
 
 ## Setup and Install Cosmovisor
+
 Download and Install Cosmovisor
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
-​
-Create Service
+```python
+go install [cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest](http://cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest)
+```
+
+- Create Service
 
 ```python
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
@@ -242,24 +256,20 @@ Make new Wallet
 
 ```python
 lavad keys add wallet
-​```
+```
+-
 
 Make sure you're already saved the phrase
-Restore/import wallet
+- Restore/import wallet
 
 ```python
-
 lavad keys add wallet --restore
-
-​```
-
+```
+​
 Get some test token on faucet channel at lava discord server
 Check Wallet Balance
-
 ```python
-
 lavad q bank balances $(lavad keys show wallet -a)
-
 ```
 
 ## Create Validator
