@@ -93,8 +93,6 @@ go install [cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest](http://cosmossd
 ```
 
 - Create Service
-
-```
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
 [Unit]
 Description=lava node service
@@ -113,15 +111,10 @@ Environment="UNSAFE_SKIP_BACKUP=true"
 [Install]
 WantedBy=multi-user.target
 EOF
-
-
-```
+​
 sudo systemctl daemon-reload
-```
-
-```
+​
 sudo systemctl enable lava.service
-```
 
 ## Initialize Node=
 Setup Node Configurations:
